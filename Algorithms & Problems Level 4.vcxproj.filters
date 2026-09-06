@@ -15,13 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Number To Text Using Recursion And Loop Problem#1.cpp">
+    <ClCompile Include="Problem#1 Number To Text Using Recursion And Loop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Is Leap Year Problem#2 And 3.cpp">
+    <ClCompile Include="Problem#2 And 3 Is Leap Year.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Get days\hours\seconds from a certain year.cpp">
+    <ClCompile Include="Get days\hours\Problem#4 year details from cetain year.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#5 month details from a cetain month .cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#6 Optimize Problem#5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#7  Prtint The Day Name Of Week.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
