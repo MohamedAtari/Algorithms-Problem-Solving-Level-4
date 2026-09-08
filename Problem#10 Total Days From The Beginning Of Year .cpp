@@ -1,5 +1,6 @@
 #include <iostream>
 #include<string>
+#include<iomanip>
 
 using namespace std;
 
@@ -9,14 +10,14 @@ bool IsLeapYear(short Year) {
 
 }
 
-short NumberOfDaysInAMonth(short Month, short Year){
+short NumberOfDaysInAMonth(short Month, short Year) {
 
 	if (Month < 1 || Month>12) {
 		return 0;
 	}
 
 	short MonthsDays[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
-	return (Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : MonthsDays[Month - 1];
+	return (Month == 2 && IsLeapYear(Year)) ? 29 : MonthsDays[Month - 1];
 
 }
 
@@ -40,7 +41,7 @@ short ReadNumberOfMonth() {
 	return Month;
 }
 
-short ReadNumberOfDay(short Month , short Year) {
+short ReadNumberOfDay(short Month, short Year) {
 
 	short Day = 0;
 	short MaxMonthDays = NumberOfDaysInAMonth(Month, Year);
@@ -53,32 +54,28 @@ short ReadNumberOfDay(short Month , short Year) {
 	return Day;
 }
 
-short GetDayIndex(short Year, short Month, short Day) {
+short TotalDaysFromTheBeginningOfTheYear(short Year,short Month,short Day) {
 
-	short a = (14 - Month) / 12;
-	short y = Year - a;
-	short m = Month + 12 * a - 2;
+	short TotalDays = 0;
 
-	return	 (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
-}
+	for (short i = 1; i <= Month - 1; i++) {
 
-string GetDayName(short DayIndex) {
+		TotalDays += NumberOfDaysInAMonth(Month, Year);
 
-	string DaysNames[7] = { "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" };
-	return DaysNames[DayIndex];
+	}
+
+	TotalDays += Day;
+
+	return TotalDays;
 }
 
 int main() {
 
 	short Year = ReadNumberOfYear();
 	short Month = ReadNumberOfMonth();
-	short Day = ReadNumberOfDay(Month,Year);
-	short DayIndex = GetDayIndex(Year, Month, Day);
+	short Day = ReadNumberOfDay(Month, Year);
 
-
-	cout << "\n\nDate      : " << Day << "/" << Month << "/" << Year;
-	cout << "\nDay Order : " << DayIndex;
-	cout << "\nDay Name  : " << GetDayName(DayIndex);
+	cout << "\nNumber Of Days Of Th Beginning Of The Year : " << TotalDaysFromTheBeginningOfTheYear(Year, Month, Day) << endl;;
 
 	system("pause>0");
 	return 0;
