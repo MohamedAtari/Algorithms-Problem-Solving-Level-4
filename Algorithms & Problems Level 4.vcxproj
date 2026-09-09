@@ -148,7 +148,10 @@
     <ClCompile Include="Problem#10 Total Days From The Beginning Of Year .cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Problem#11.cpp" />
+    <ClCompile Include="Problem#11.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Problem#12 Add Days To Date.cpp" />
     <ClCompile Include="Problem#2 And 3 Is Leap Year.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

@@ -62,65 +62,67 @@ short ReadNumberOfDay(short Month, short Year) {
 	return Day;
 }
 
-short TotalDaysFromTheBeginningOfTheYear(short Year, short Month, short Day) {
+stDate DateAddDays(stDate Date, short Days) {
 
-	short TotalDays = 0;
-
-	for (short i = 1; i <= Month - 1; i++) {
-
-		TotalDays += NumberOfDaysInAMonth(i, Year);
-
-	}
-
-	TotalDays += Day;
-
-	return TotalDays;
-}
-
-stDate GetDateFromDaysOrderinYear(short Days, short Year) {
-
-	stDate Date;
-	short RemainingDays = Days;
-	short MonthDays = 0;
-
-	Date.Year = Year;
-	Date.Month = 1;
+	short CurrentMonthDays = 0;
 
 	while (true) {
 
-		MonthDays = NumberOfDaysInAMonth(Date.Month, Year);
+		CurrentMonthDays = NumberOfDaysInAMonth(Date.Month, Date.Year);
 
-		if (RemainingDays > MonthDays) {
+		if (Days > CurrentMonthDays) {
 
-			RemainingDays -= MonthDays;
+			Days -= CurrentMonthDays;
+
+			if (Date.Month == 12) {
+				Date.Year++;
+				Date.Month = 0;
+			}
+
 			Date.Month++;
 
 		}
 		else {
 
-			Date.Day = RemainingDays;
+			Date.Day = Days + Date.Day;
 			break;
 
 		}
 
 	}
-	
+
 	return Date;
 }
 
-int main() {
+stDate ReadFullDate() {
 
-	short Year = ReadNumberOfYear();
-	short Month = ReadNumberOfMonth();
-	short Day = ReadNumberOfDay(Month, Year);
-	short DaysOrderInYear = TotalDaysFromTheBeginningOfTheYear(Year, Month, Day);
+	stDate Date;
+	
+	Date.Year = ReadNumberOfYear();
+	Date.Month = ReadNumberOfMonth();
+	Date.Day = ReadNumberOfDay(Date.Month,Date.Year);
 
-	cout << "\nNumber Of Days Of Th Beginning Of The Year : " << DaysOrderInYear << endl;;
+	return Date;
+}
 
-	stDate Date = GetDateFromDaysOrderinYear(DaysOrderInYear, Year);
+short ReadDaysToAdd() {
 
-	cout << "\nDate for [" << DaysOrderInYear << "] is : ";
-	cout << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
+	short Days = 0;
+	cout << "\n\nHow Many Days To Add : ";
+	cin >> Days;
+	return Days;
+
+}
+
+int main(){
+
+	stDate Date = ReadFullDate();
+	short DaysToAdd = ReadDaysToAdd();
+
+	Date = DateAddDays(Date,DaysToAdd);
+	
+	cout << "\n\nDate After Added [" << DaysToAdd << "] Days Is : ";
+	cout << Date.Day << "/" << Date.Month << "/" << Date.Year;
 
 	system("pause>0");
 	return 0;
