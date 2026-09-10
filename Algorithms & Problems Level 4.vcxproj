@@ -160,7 +160,10 @@
     <ClCompile Include="Problem#14 Is Equal Date.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Problem#15.cpp" />
+    <ClCompile Include="Problem#15 is last day &amp; month.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Problem#16.cpp" />
     <ClCompile Include="Problem#2 And 3 Is Leap Year.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

@@ -29,6 +29,43 @@ struct stDate {
 
 };
 
+bool IsLastDayInMonth(stDate Date) {
+
+	return (Date.Day == NumberOfDaysInAMonth(Date.Month, Date.Year));
+
+}
+
+bool IsLastMonthInYear(short Month) {
+
+	return (Month == 12);
+
+}
+
+stDate IncreaseDateByOneDay(stDate &Date) {
+
+	if (IsLastDayInMonth(Date)) {
+
+		if (IsLastMonthInYear(Date.Month)) {
+
+			Date.Month = 1;
+			Date.Day = 1;
+			Date.Year++;
+
+		}
+		else {
+			Date.Month++;
+			Date.Day = 1;
+		}
+
+	}
+	else {
+
+		Date.Day++;
+
+	}
+	return Date;
+}
+
 short ReadNumberOfYear() {
 
 	short Year = 0;
@@ -70,36 +107,19 @@ stDate ReadFullDate() {
 
 	Date.Year = ReadNumberOfYear();
 	Date.Month = ReadNumberOfMonth();
-	Date.Day = ReadNumberOfDay(Date.Month,Date.Year);
+	Date.Day = ReadNumberOfDay(Date.Month, Date.Year);
 
 	return Date;
-}
-
-bool IsLastDayInMonth(stDate Date) {
-
-	return (Date.Day == NumberOfDaysInAMonth(Date.Month,Date.Year));
-
-}
-
-bool IsLastMonthInYear(stDate Date) {
-
-	return (Date.Month == 12);
-
 }
 
 int main() {
 
 	stDate Date = ReadFullDate();
 
-	if (IsLastDayInMonth(Date))
-		cout << "\n\nYes , day is last day in month.";
-	else
-		cout << "\n\nNo , day is not last day in month.";
+	Date = IncreaseDateByOneDay(Date);
 
-	if (IsLastMonthInYear(Date))
-		cout << "\n\nYes , month is last month in year.";
-	else
-		cout << "\n\nNo , month is not last month in year.";
+	cout << "\n\nDate After Adding One Day : ";
+	cout << Date.Day << "/" << Date.Month << "/" << Date.Year;
 
 	system("pause>0");
 	return 0;
