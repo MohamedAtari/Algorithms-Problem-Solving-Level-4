@@ -48,7 +48,10 @@
     <ClCompile Include="Problem#12 Add Days To Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Problem#13.cpp">
+    <ClCompile Include="Problem#13 Is First Date Less Than Second Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#14 Is Equal Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

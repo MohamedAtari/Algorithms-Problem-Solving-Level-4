@@ -64,21 +64,6 @@ short ReadNumberOfDay(short Month, short Year) {
 	return Day;
 }
 
-short TotalDaysFromTheBeginningOfTheYear(short Year, short Month, short Day) {
-
-	short TotalDays = 0;
-
-	for (short i = 1; i <= Month - 1; i++) {
-
-		TotalDays += NumberOfDaysInAMonth(i, Year);
-
-	}
-
-	TotalDays += Day;
-
-	return TotalDays;
-}
-
 stDate ReadFullDate() {
 
 	stDate Date;
