@@ -42,7 +42,7 @@ short ReadNumberOfMonth() {
 
 	short Month = 0;
 	do {
-		cout << "\n\nPlease enter a month to check : ";
+		cout << "\nPlease enter a month to check : ";
 		cin >> Month;
 	} while (Month < 1 || Month>12);
 
@@ -55,9 +55,11 @@ short ReadNumberOfDay(short Month, short Year) {
 	short MaxMonthDays = NumberOfDaysInAMonth(Month, Year);
 
 	do {
-		cout << "\n\nPlease enter the number of day (1-" << MaxMonthDays << ") :";
+		cout << "\nPlease enter the number of day (1-" << MaxMonthDays << ") :";
 		cin >> Day;
 	} while (Day < 1 || Day>MaxMonthDays);
+
+	cout << "\n\n";
 
 	return Day;
 }
@@ -77,70 +79,33 @@ short TotalDaysFromTheBeginningOfTheYear(short Year, short Month, short Day) {
 	return TotalDays;
 }
 
-stDate DateAddDays(stDate Date, short Days) {
-
-	short CurrentMonthDays = 0;
-	short RemainingDays = Days + TotalDaysFromTheBeginningOfTheYear(Date.Year, Date.Month, Date.Day);
-	
-	Date.Month = 1;
-
-	while (true) {
-
-		CurrentMonthDays = NumberOfDaysInAMonth(Date.Month, Date.Year);
-
-		if (RemainingDays > CurrentMonthDays) {
-
-			RemainingDays -= CurrentMonthDays;
-
-			if (Date.Month == 12) {
-				Date.Year++;
-				Date.Month = 0;
-			}
-
-			Date.Month++;
-
-		}
-		else {
-
-			Date.Day = RemainingDays;
-			break;
-
-		}
-
-	}
-
-	return Date;
-}
-
 stDate ReadFullDate() {
 
 	stDate Date;
-	
+
 	Date.Year = ReadNumberOfYear();
 	Date.Month = ReadNumberOfMonth();
-	Date.Day = ReadNumberOfDay(Date.Month,Date.Year);
+	Date.Day = ReadNumberOfDay(Date.Month, Date.Year);
 
 	return Date;
 }
 
-short ReadDaysToAdd() {
+bool IsFirstDateLessThanSecondDate(stDate Date1, stDate Date2) {
 
-	short Days = 0;
-	cout << "\n\nHow Many Days To Add : ";
-	cin >> Days;
-	return Days;
-
+	return (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
 }
 
-int main(){
+int main() {
 
-	stDate Date = ReadFullDate();
-	short DaysToAdd = ReadDaysToAdd();
-
-	Date = DateAddDays(Date,DaysToAdd);
+	stDate Date1 = ReadFullDate();
+	stDate Date2 = ReadFullDate();
 	
-	cout << "\n\nDate After Added [" << DaysToAdd << "] Days Is : ";
-	cout << Date.Day << "/" << Date.Month << "/" << Date.Year;
+	if (IsFirstDateLessThanSecondDate(Date1, Date2)) {
+		cout << "\nYes ,Date1 Less Than Date2.";
+	}
+	else {
+		cout << "\nNo ,Date1 Is Not Less Than Date2.";
+	}
 
 	system("pause>0");
 	return 0;
