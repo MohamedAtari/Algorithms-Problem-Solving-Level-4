@@ -42,7 +42,7 @@
     <ClCompile Include="Problem#10 Total Days From The Beginning Of Year .cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Problem#11.cpp">
+    <ClCompile Include="Problem#11 Get Date From Days Orderin Year.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Problem#12 Add Days To Date.cpp">
@@ -57,7 +57,10 @@
     <ClCompile Include="Problem#15 is last day &amp; month.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Problem#16.cpp">
+    <ClCompile Include="Problem#16 Increase One Day To Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#17 Diff In Days.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\Problem#13 Is First Date Less Than Second Date.obj",
+            "outputs": [
+                "x64\\Debug\\Problem#13 Is First Date Less Than Second Date.cpp.obj.dt.module.json",
+                "x64\\Debug\\Problem#13 Is First Date Less Than Second Date.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

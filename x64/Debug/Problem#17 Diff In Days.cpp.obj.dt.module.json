@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\Problem#17 Diff In Days.obj",
+            "outputs": [
+                "x64\\Debug\\Problem#17 Diff In Days.cpp.obj.dt.module.json",
+                "x64\\Debug\\Problem#17 Diff In Days.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}
