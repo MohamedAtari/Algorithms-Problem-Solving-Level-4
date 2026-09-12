@@ -95,49 +95,12 @@ stDate ReadFullDate() {
 	return Date;
 }
 
-bool IsLastDayInMonth(stDate Date) {
-
-	return (Date.Day == NumberOfDaysInAMonth(Date.Month, Date.Year));
-
-}
-
-bool IsLastMonthInYear(short Month) {
-
-	return (Month == 12);
-
-}
-
-stDate IncreaseDateByOneDay(stDate& Date) {
-
-	if (IsLastDayInMonth(Date)) {
-
-		if (IsLastMonthInYear(Date.Month)) {
-
-			Date.Month = 1;
-			Date.Day = 1;
-			Date.Year++;
-
-		}
-		else {
-			Date.Month++;
-			Date.Day = 1;
-		}
-
-	}
-	else {
-
-		Date.Day++;
-
-	}
-	return Date;
-}
-
 int GetDifferenceInDays(stDate Date1, stDate Date2, bool IncludeEndDay = false)
 {
 	int Date2Sum = 0;
 
 	for (short i = Date1.Year; i < Date2.Year; i++) {
-		Date2Sum = TotalDaysFromTheBeginningOfTheYear(31,12,i);
+		Date2Sum += TotalDaysFromTheBeginningOfTheYear(i,12,31);
 	}
 
 	Date2Sum += TotalDaysFromTheBeginningOfTheYear(Date2.Year, Date2.Month, Date2.Day);
