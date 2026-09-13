@@ -280,7 +280,7 @@ int main() {
 	cout << "\n11-Adding 10 Decades Is : " << GetDate(Date);
 
 	Date = IncreaseDateByXDecadeFaster(Date,10);
-	cout << "\n12-Adding 10 Decades Is : " << GetDate(Date);
+	cout << "\n12-Adding 10 Decades (Faster) Is : " << GetDate(Date);
 
 	Date = IncreaseDateByOneCentury(Date);
 	cout << "\n13-Adding One Century Is : " << GetDate(Date);
