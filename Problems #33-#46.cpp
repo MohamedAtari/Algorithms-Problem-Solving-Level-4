@@ -246,23 +246,54 @@ string GetDate(const stDate& Date) {
 
 int main() {
 
-	stDate Date = ReadFullDate();
+	stDate Date1 = ReadFullDate();
 
-	cout << "\nDate: " << GetDate(Date) << "\n\n";
+	cout << "\nDate: " << GetDate(Date1) << "\n";
 
-	cout << "01-Subtracting one day is: " << GetDate(DecreaseDateByOneDay(Date)) << "\n";
-	cout << "02-Subtracting 10 days is: " << GetDate(DecreaseDateByXDays(Date, 10)) << "\n";
-	cout << "03-Subtracting one week is: " << GetDate(DecreaseDateByOneWeek(Date)) << "\n";
-	cout << "04-Subtracting 10 weeks is: " << GetDate(DecreaseDateByXWeeks(Date, 10)) << "\n";
-	cout << "05-Subtracting one month is: " << GetDate(DecreaseDateByOneMonth(Date)) << "\n";
-	cout << "06-Subtracting 5 months is: " << GetDate(DecreaseDateByXMonths(Date, 5)) << "\n";
-	cout << "07-Subtracting one year is: " << GetDate(DecreaseDateByOneYear(Date)) << "\n";
-	cout << "08-Subtracting 10 years is: " << GetDate(DecreaseDateByXYear(Date, 10)) << "\n";
-	cout << "09-Subtracting one decade is: " << GetDate(DecreaseDateByOneDecade(Date)) << "\n";
-	cout << "10-Subtracting 10 decades is: " << GetDate(DecreaseDateByXDecades(Date, 10)) << "\n";
-	cout << "11-Subtracting one century is: " << GetDate(DecreaseDateByOneCentury(Date)) << "\n";
-	cout << "12-Subtracting one millennium is: " << GetDate(DecreaseDateByOneMillennium(Date)) << "\n";
+	Date1 = DecreaseDateByOneDay(Date1);
+	cout << "\n01-Subtracting one day is: " << GetDate(Date1);
 
-	system("pause>0");
+	Date1 = DecreaseDateByXDays(Date1, 10);
+	cout << "\n02-Subtracting 10 days is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByOneWeek(Date1);
+	cout << "\n03-Subtracting one week is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByXWeeks(Date1, 10);
+	cout << "\n04-Subtracting 10 weeks is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByOneMonth(Date1);
+	cout << "\n05-Subtracting one month is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByXMonths(Date1, 5);
+	cout << "\n06-Subtracting 5 months is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByOneYear(Date1);
+	cout << "\n07-Subtracting one year is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByXYear(Date1, 10);
+	cout << "\n08-Subtracting 10 Years is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByXYearFaster(Date1, 10);
+	cout << "\n09-Subtracting 10 Years (faster) is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByOneDecade(Date1);
+	cout << "\n10-Subtracting one Decade is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByXDecades(Date1, 10);
+	cout << "\n11-Subtracting 10 Decades is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByXDecades(Date1, 10); 
+	cout << "\n12-Subtracting 10 Decade (faster) is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByOneCentury(Date1);
+	cout << "\n13-Subtracting One Century is: " << GetDate(Date1);
+
+	Date1 = DecreaseDateByOneMillennium(Date1);
+	cout << "\n14-Subtracting One Millennium is: " << GetDate(Date1);
+
+	cout << "\n\n";
+
+	system("pause>nul");
 	return 0;
 }
