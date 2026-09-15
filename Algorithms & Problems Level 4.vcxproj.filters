@@ -69,13 +69,16 @@
     <ClCompile Include="Problem#19 Diff in days %28Negative Days%29 .cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Problem #20 - #32.cpp">
+    <ClCompile Include="Problem#20-#32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Problems #33-#46.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Problems#47-#53.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#54 Calculate Vacation Days.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
