@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 struct stDate {
 
 	short Year = 0;
@@ -75,21 +76,33 @@ stDate ReadFullDate() {
 	return Date;
 }
 
+bool IsDate1LessThanDate2(stDate Date1, stDate Date2) {
+	return (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+}
+
 bool IsDate1EqualDate2(stDate Date1, stDate Date2) {
 
 	return (Date1.Year == Date2.Year) && (Date1.Month == Date2.Month) && (Date1.Day == Date2.Day);
 }
 
-bool IsDate1LessThanDate2(stDate Date1, stDate Date2) {
-	return (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
-}
-
 bool IsDat1AfterDate2(stDate Date1, stDate Date2) {
-	return (!IsDate1LessThanDate2(Date1, Date2) && !IsDate1EqualDate2(Date1,Date2));
+	return (!IsDate1LessThanDate2(Date1, Date2) && !IsDate1EqualDate2(Date1, Date2));
 }
 
-bool IsDat1AfterDate2Faster(stDate Date1, stDate Date2) {
-	return IsDate1LessThanDate2(Date2, Date1);
+enum enCompareDatesStatus {Before = -1,Eqauls = 0 , After = 1};
+
+enCompareDatesStatus CompareDates(stDate Date1, stDate Date2) {
+
+	return (IsDate1LessThanDate2(Date1, Date2) ? enCompareDatesStatus::Before : ((IsDate1EqualDate2(Date1, Date2)) ? enCompareDatesStatus::Eqauls : enCompareDatesStatus::After));
+
+	if (IsDat1AfterDate2(Date1, Date2))
+		return enCompareDatesStatus::After;
+
+	if (IsDate1EqualDate2(Date1, Date2))
+		return enCompareDatesStatus::Eqauls;
+
+	return enCompareDatesStatus::Before;
+
 }
 
 int main() {
@@ -99,12 +112,7 @@ int main() {
 	cout << "Enter Date2 : \n";
 	stDate Date2 = ReadFullDate();
 
-	if (IsDat1AfterDate2(Date1, Date2)) {
-		cout << "Yes , Date1 Is After Date2.";
-	}
-	else {
-		cout << "No , Date1 Is Not After Date2.";
-	}
+	cout << "Compare Result : " << CompareDates(Date1, Date2) << endl;
 
 	system("pause>0");
 	return 0;
