@@ -81,5 +81,11 @@
     <ClCompile Include="Problem#54 Calculate Vacation Days.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Problem#55 Calculate Vacation Return Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Problem#56 Is Date1 After Date2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

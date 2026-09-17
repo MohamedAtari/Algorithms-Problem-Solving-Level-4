@@ -87,20 +87,6 @@ string GetDayNameByIndex(short DayOrderIndex) {
 	return DaysName[DayOrderIndex];
 }
 
-bool IsWeekEnd(stDate Date) {
-
-	short DayOrederIndex = DayOrderInWeek(Date);
-	return (DayOrederIndex == 5 || DayOrederIndex == 6);
-}
-
-bool IsBusinessDay(stDate Date) {
-	return !IsWeekEnd(Date);
-}
-
-bool IsDate1LessThanDate2(stDate Date1, stDate Date2) {
-	return (Date1.Year < Date2.Year) ? true : ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true : (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
-}
-
 bool IsLastDayInMonth(stDate Date) {
 
 	return (Date.Day == NumberOfDaysInAMonth(Date.Month, Date.Year));
@@ -111,6 +97,16 @@ bool IsLastMonthInYear(short Month) {
 
 	return (Month == 12);
 
+}
+
+bool IsWeekEnd(stDate Date) {
+
+	short DayOrederIndex = DayOrderInWeek(Date);
+	return (DayOrederIndex == 5 || DayOrederIndex == 6);
+}
+
+bool IsBusinessDay(stDate Date) {
+	return !IsWeekEnd(Date);
 }
 
 stDate IncreaseDateByOneDay(stDate Date) {
@@ -149,37 +145,73 @@ stDate ReadFullDate() {
 	return Date;
 }
 
-short CalculateVacationDays(stDate VacationStars,stDate VacationEnd) {
+stDate CalculateVecationReturnDate(stDate Date,short VacationDays) {
 
-	short VacationDays = 0;
+	short WeekEndsDays = 0;
 
-	while (IsDate1LessThanDate2(VacationStars, VacationEnd)) {
+	for (short i = 1; i <= VacationDays + WeekEndsDays; i++) {
 
-		if (IsBusinessDay(VacationStars))
-			VacationDays++;
+		if (IsWeekEnd(Date)) {
+			WeekEndsDays++;
+		}
 
-		VacationStars = IncreaseDateByOneDay(VacationStars);
+		Date = IncreaseDateByOneDay(Date);
+
 	}
-	return VacationDays;
+
+	while (IsWeekEnd(Date)) {
+		Date = IncreaseDateByOneDay(Date);
+	}
+
+	return Date;
+}
+
+stDate CalculateVecationReturnDateFaster(stDate Date, short VacationDays) {
+
+	while (VacationDays > 0) {
+
+		if (IsBusinessDay(Date)) {
+			VacationDays--;
+		}
+
+		Date = IncreaseDateByOneDay(Date);
+
+	}
+
+	while (IsWeekEnd(Date)) {
+		Date = IncreaseDateByOneDay(Date);
+	}
+
+}
+
+stDate CalculateVecationReturnDateAnthorWay(stDate Date, short VacationDays) {
+
+	for (short i = 1 ; i <= VacationDays; i++) {
+
+		while (IsWeekEnd(Date)) {
+			Date = IncreaseDateByOneDay(Date);
+		}
+
+		Date = IncreaseDateByOneDay(Date);
+	}
+
 }
 
 int main() {
 
 	stDate VacationSatarts;
-	stDate VacationEnd;
+	stDate VacationReturnDate;
+	short VacationDays = 0;
 
-	cout << "Vacation Starts :\n";
 	VacationSatarts = ReadFullDate();
 
-	cout << "Vacatio Ensd :\n";
-	VacationEnd = ReadFullDate();
+	cout << "Please enter vacation days? ";
+	cin >> VacationDays;
 
-	cout << "Vacation From : " << GetDayNameByIndex(DayOrderInWeek(VacationSatarts))<<" , ";
-	cout << VacationSatarts.Day << "/" << VacationSatarts.Month << "/" << VacationSatarts.Year;
-	cout << "\nVacation To : " << GetDayNameByIndex(DayOrderInWeek(VacationEnd))<<" , ";
-	cout << VacationEnd.Day << "/" << VacationEnd.Month << "/" << VacationEnd.Year;
+	VacationReturnDate = CalculateVecationReturnDate(VacationSatarts,VacationDays);
 
-	cout << "\n\nActucal Vacation Days Is : " << CalculateVacationDays(VacationSatarts, VacationEnd);
+	cout << "Return Date : " << GetDayNameByIndex(DayOrderInWeek(VacationReturnDate)) << " , ";
+	cout << VacationReturnDate.Day << "/" << VacationReturnDate.Month << "/" << VacationReturnDate.Year;
 
 	system("pause>0");
 	return 0;
