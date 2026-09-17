@@ -117,7 +117,7 @@ int GetDifferenceInDays(stDate Date1, stDate Date2, bool IncludedEndDay = false)
 	return IncludedEndDay ? ++Days * SwapFlagValue : Days * SwapFlagValue;
 }
 
-int PeriodLengthInDays(stPeriod Period , bool IncludeEndDate = false) {
+int PeriodLengthInDays(stPeriod &Period , bool IncludeEndDate = false) {
 
 	return GetDifferenceInDays(Period.StartDate, Period.EndDate, IncludeEndDate);
 
@@ -195,8 +195,8 @@ int main() {
 	cout << "Enter Period :\n\n";
 	Period = ReadPeriod();
 
-	cout << "\nPeriod Length : " << GetDifferenceInDays(Period.StartDate,Period.EndDate);
-	cout << "\nPeriod Length (Including End Date) : " << GetDifferenceInDays(Period.StartDate, Period.EndDate, true);
+	cout << "\nPeriod Length : " << PeriodLengthInDays(Period);
+	cout << "\nPeriod Length (Including End Date) : " << PeriodLengthInDays(Period,true);
 
 	system("pause>0");
 	return 0;

@@ -157,7 +157,10 @@
     <ClCompile Include="Problem#58 Is Overlap Periods.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="Problem#59 Period Length In Days.cpp" />
+    <ClCompile Include="Problem#59 Period Length In Days.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Problem#60 Is Date Within Period.cpp" />
     <ClCompile Include="Problems#47-#53.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
