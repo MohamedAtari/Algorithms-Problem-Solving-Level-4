@@ -118,9 +118,7 @@ enum enCompareDatesStatus { Before = -1, Eqauls = 0, After = 1 };
 
 enCompareDatesStatus CompareDates(stDate Date1, stDate Date2) {
 
-	return (IsDate1LessThanDate2(Date1, Date2) ? enCompareDatesStatus::Before : ((IsDate1EqualDate2(Date1, Date2)) ? enCompareDatesStatus::Eqauls : enCompareDatesStatus::After));
-
-	if (IsDat1AfterDate2(Date1, Date2))
+	if (IsDate1AfterOrEqualDate2(Date1, Date2))
 		return enCompareDatesStatus::After;
 
 	if (IsDate1EqualDate2(Date1, Date2))
@@ -149,8 +147,8 @@ int main() {
 	cout << "Enter Date To Check :\n\n";
 
 	Date = ReadFullDate();
-	
-	if (IsDateWithinPeriod(Date, Period)) {
+
+	if (IsDateinPeriod(Date, Period)) {
 		cout << "Yes , The Date Within The Period.";
 	}
 	else {
