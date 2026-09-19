@@ -102,5 +102,8 @@
     <ClCompile Include="Problem#61 Count Overlap Days.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Problem#62 Is Valid  Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -177,7 +177,7 @@ bool IsDateinPeriod(stDate Date, const stPeriod& Period) {
 		CompareDates(Date, Period.EndDate) == enCompareDatesStatus::After);
 }
 
-int CountOverLapDays(stPeriod Period1, stPeriod Period2) {
+int CountOverLapDays(stPeriod Period1,stPeriod Period2) {
 	if (!IsOverlapPeriods(Period1, Period2))
 		return 0;
 
@@ -188,7 +188,7 @@ int CountOverLapDays(stPeriod Period1, stPeriod Period2) {
 	
 	if (Period1Length < Period2Length) {
 
-		while (IsDate1LessThanDate2(Period1.StartDate, Period1.EndDate)) {
+		while (IsDate1LessThanDate2(Period1.StartDate, Period1.EndDate) ||IsDate1EqualDate2(Period1.StartDate,Period1.EndDate)) {
 
 			if (IsDateinPeriod(Period1.StartDate, Period2)) {
 				OverLapDays++;
@@ -198,7 +198,7 @@ int CountOverLapDays(stPeriod Period1, stPeriod Period2) {
 	}
 	else {
 
-		while (IsDate1LessThanDate2(Period2.StartDate, Period2.EndDate)) {
+		while (IsDate1LessThanDate2(Period2.StartDate, Period2.EndDate)||IsDate1EqualDate2(Period2.StartDate, Period2.EndDate)) {
 
 			if (IsDateinPeriod(Period2.StartDate, Period1)) {
 				OverLapDays++;
@@ -210,6 +210,19 @@ int CountOverLapDays(stPeriod Period1, stPeriod Period2) {
 	return OverLapDays;
 }
 
+int CountOverLapDaysFaster(const stPeriod& Period1, const stPeriod& Period2, bool IncludeEndDate = false) {
+
+	if (!IsOverlapPeriods(Period1, Period2)) {
+		return 0;
+	}
+
+	stDate OverlapStart = IsDate1AfterDate2(Period1.StartDate, Period2.StartDate) ? Period1.StartDate : Period2.StartDate;
+
+	stDate OverlapEnd = IsDate1LessThanDate2(Period1.EndDate, Period2.EndDate) ? Period1.EndDate : Period2.EndDate;
+
+	return GetDifferenceInDays(OverlapStart, OverlapEnd, IncludeEndDate);
+}
+
 int main() {
 	cout << "--- Period 1 ---\n";
 	stPeriod Period1 = ReadPeriod();
@@ -217,7 +230,7 @@ int main() {
 	cout << "\n--- Period 2 ---\n";
 	stPeriod Period2 = ReadPeriod();
 
-	cout << "\nOverLap Days Count Is : " << CountOverLapDays(Period1, Period2) << "\n";
+	cout << "\nOverLap Days Count Is : " << CountOverLapDaysFaster(Period1, Period2,true) << "\n";
 
 	system("pause>0");
 	return 0;
