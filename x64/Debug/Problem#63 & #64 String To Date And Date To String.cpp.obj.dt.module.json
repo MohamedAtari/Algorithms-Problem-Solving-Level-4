@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\Problem#63 & #64 String To Date And Date To String.obj",
+            "outputs": [
+                "x64\\Debug\\Problem#63 & #64 String To Date And Date To String.cpp.obj.dt.module.json",
+                "x64\\Debug\\Problem#63 & #64 String To Date And Date To String.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

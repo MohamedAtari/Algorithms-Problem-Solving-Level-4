@@ -105,5 +105,8 @@
     <ClCompile Include="Problem#62 Is Valid  Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Problem#63 &amp; #64 String To Date And Date To String.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

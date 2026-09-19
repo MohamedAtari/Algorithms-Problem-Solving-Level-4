@@ -59,14 +59,9 @@ stDate ReadFullDate() {
 
 bool IsValidDate(stDate Date) {
 
-	if (Date.Month < 1 || Date.Month>12)
-		return false;
-	
-	if (Date.Day < 1 || Date.Day > NumberOfDaysInAMonth(Date.Month, Date.Year))
-		return false;
+	return (Date.Month >= 1 && Date.Month <= 12) &&
+		(Date.Day >= 1 && Date.Day <= NumberOfDaysInAMonth(Date.Month, Date.Year));
 
-
-	return true;
 }
 
 int main() {
