@@ -66,10 +66,10 @@ bool IsValidDate(stDate Date) {
 
 }
 
-stDate StringToDate(string StringDate,bool &IsValid) {
+stDate StringToDate(string StringDate, bool& IsValid) {
 
 	stDate Date;
-	vector<string>vDate = SplitString(StringDate,"/");
+	vector<string>vDate = SplitString(StringDate, "/");
 	IsValid = false;
 
 	if (vDate.size() != 3) {
@@ -116,7 +116,7 @@ int main() {
 	string StringDate = ReadDateString("\nPlease enter a date dd/mm/yyyy ? ");
 	bool IsValid;
 
-	Date = StringToDate(StringDate,IsValid);
+	Date = StringToDate(StringDate, IsValid);
 
 	if (IsValid) {
 		PrintDate(Date);

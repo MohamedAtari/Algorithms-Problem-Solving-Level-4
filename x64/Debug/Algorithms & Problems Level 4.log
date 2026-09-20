@@ -1,1 +1,5 @@
-﻿  Algorithms & Problems Level 4.vcxproj -> C:\Users\daynabook\source\repos\Algorithms & Problems Level 4\x64\Debug\Algorithms & Problems Level 4.exe
+﻿  Problem#65 FormatDate.cpp
+C:\Users\daynabook\source\repos\Algorithms & Problems Level 4\Algorithms & Problems Level 4\Problem#65 FormatDate.cpp(77,23): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\daynabook\source\repos\Algorithms & Problems Level 4\Algorithms & Problems Level 4\Problem#65 FormatDate.cpp(133,12): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+C:\Users\daynabook\source\repos\Algorithms & Problems Level 4\Algorithms & Problems Level 4\Problem#65 FormatDate.cpp(139,16): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  Algorithms & Problems Level 4.vcxproj -> C:\Users\daynabook\source\repos\Algorithms & Problems Level 4\x64\Debug\Algorithms & Problems Level 4.exe
